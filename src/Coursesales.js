@@ -1,10 +1,58 @@
 import React, { Component } from 'react';
 
 class Coursesales extends Component {
+  sumPrice(price){
+    this.setState({total: this.state.total + price})
+  }
+  constructor(props){
+    super(props);
+
+    this.state = {
+      total: 0
+    };
+    this.sumPrice = this.sumPrice.bind(this);
+
+  }
+
+  render(){
+      const courses = this.props.items.map((item, i) => {
+        return <Course name={item.name} price={item.price}
+          key={i} sumPrice={this.sumPrice} active={item.active}/>
+      });
+      console.log(this.state.items);
+      return(
+        <div>
+          <h1> You can buy courses: </h1>
+          <div id="courses">
+            <p id="total"> Total <b>{this.state.total}</b></p>
+          {courses}
+          </div>
+        </div>
+      );
+  }
+}
+
+// another component for course (map)
+class Course extends Component {
+
+  clicker(){
+    const active = !this.state.active;
+    this.setState({active: active});
+    this.props.sumPrice(active ? this.props.price : -this.props.price);
+  }
+  constructor(props){
+    super(props);
+
+    this.state = {
+      active: false
+    };
+
+    this.clicker = this.clicker.bind(this);
+  }
   render(){
     return(
       <div>
-        I am from Coursesales Component
+        <p onClick={this.clicker}>{this.props.name} <b> {this.props.price}</b></p>
       </div>
     );
   }

@@ -7,10 +7,10 @@ import Coursesales from '../src/Coursesales';
 class App extends Component {
   render() {
     const courses = [
-      { name: 'Complete React js course', price: 199 };
-      { name: 'Complete Pentesting course', price: 199 };
-      { name: 'Complete Front End dev course', price: 199 };
-      { name: 'Complete PHP course', price: 199 };
+      { name: 'Complete React js course', price: 199 },
+      { name: 'Complete Pentesting course', price: 199 },
+      { name: 'Complete Front End dev course', price: 199 },
+      { name: 'Complete PHP course', price: 199 }
     ]
 
     return (
