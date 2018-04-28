@@ -24,8 +24,8 @@ class Coursesales extends Component {
         <div>
           <h1> You can buy courses: </h1>
           <div id="courses">
+            {courses}
             <p id="total"> Total <b>{this.state.total}</b></p>
-          {courses}
           </div>
         </div>
       );
